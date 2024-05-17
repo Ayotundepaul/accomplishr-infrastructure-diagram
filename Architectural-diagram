@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CI/CD Architecture Diagram</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 20px;
+    }
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .diagram {
+      display: grid;
+      grid-template-columns: auto auto auto;
+      grid-gap: 20px;
+      align-items: center;
+    }
+    .box {
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    .gitlab-ci-cd { background-color: #d1e7ff; }
+    .runners { background-color: #d1ffd1; }
+    .aws-infrastructure { background-color: #ffe4b3; }
+    .kubernetes-eks { background-color: #d4c4fb; }
+    .deployment { background-color: #fbb2b2; }
+    .monitoring-logging { background-color: #fff4b3; }
+    .arrow {
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="title">CI/CD Architecture Diagram</div>
+  <div class="diagram">
+    <div class="box gitlab-ci-cd">
+      <h3>GitLab CI/CD</h3>
+      <p>- GitLab Repository</p>
+      <p>- CI/CD Pipelines</p>
+    </div>
+    <div class="arrow">&#8595;</div>
+    <div class="box runners">
+      <h3>GitLab Runners</h3>
+      <p>- EC2 Instances/K8s Pods</p>
+      <p>- Docker Executor</p>
+      <p>- Docker-in-Docker (DinD)</p>
+    </div>
+    <div class="arrow">&#8595;</div>
+    <div class="box aws-infrastructure">
+      <h3>AWS Infrastructure</h3>
+      <p>- IAM Roles and Policies</p>
+      <p>- VPC, Subnets, Security Groups</p>
+    </div>
+    <div class="arrow">&#8595;</div>
+    <div class="box kubernetes-eks">
+      <h3>Kubernetes (EKS)</h3>
+      <p>- Amazon EKS Cluster</p>
+      <p>- Node Groups (EC2 Instances)</p>
+    </div>
+    <div class="arrow">&#8595;</div>
+    <div class="box deployment">
+      <h3>Deployment</h3>
+      <p>- kubectl/Helm</p>
+      <p>- Kubernetes Manifests</p>
+    </div>
+    <div class="arrow">&#8595;</div>
+    <div class="box monitoring-logging">
+      <h3>Monitoring and Logging</h3>
+      <p>- AWS CloudWatch</p>
+      <p>- Prometheus and Grafana</p>
+    </div>
+  </div>
+</body>
+</html>
